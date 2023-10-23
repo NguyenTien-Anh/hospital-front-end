@@ -91,6 +91,20 @@
             "title-price": "Examination price",
             "payment": "Patients can pay costs in the form of: ",
             "hide-price": "Hide price list"
+        },
+        "booking-modal": {
+            "title": "Information on scheduling medical examinations",
+            "fullName": "Full name",
+            "phoneNumber": "Phone number",
+            "email": "Email",
+            "address": "Address",
+            "reason": "Reason for examination",
+            "dob": "Date of birth",
+            "gender": "Gender",
+            "confirm": "Confirm",
+            "cancel": "Cancel",
+            "price": "Examination price",
+            "priceBooking": "Free appointment for medical examination"
         }
     },
     "admin": {

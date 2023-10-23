@@ -51,7 +51,7 @@ class ProfileDoctor extends Component {
             return (
                 <>
                     <div>{time} - {date}</div>
-                    <div>mien phi dat lich kham benh</div>
+                    <div><FormattedMessage id='patient.booking-modal.priceBooking' /></div>
                 </>
             )
         }
@@ -104,7 +104,7 @@ class ProfileDoctor extends Component {
 
                 </div>
                 <div className='price'>
-                    Giá khám: <NumberFormat
+                    <FormattedMessage id='patient.booking-modal.price' />: <NumberFormat
                         value={language === LANGUAGES.VI ? priceVi : priceEn}
                         displayType={'text'} thousandSeparator={true}
                         suffix={language === LANGUAGES.VI ? 'VND' : '$'}
