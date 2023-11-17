@@ -64,10 +64,14 @@ let postVerifyBookingAppointment = (data) => {
     return axios.post(`/api/verify-book-appointment`, data)
 }
 
+let createNewSpecialty = (data) => {
+    return axios.post(`/api/create-new-specialty`, data)
+}
+
 export {
     handleLogin, getAllUsers, creatNewUser, deleteUser, editUser,
     getAllCodeService, getTopDoctorHomeService, getAllDoctor,
     saveInfoDoctor, getDetailDoctorById, bulkCreateSchedule, getScheduleDoctorByDate,
     getExtraInfoDoctorById, getProfileDoctorById, postBookAppointment,
-    postVerifyBookingAppointment
+    postVerifyBookingAppointment, createNewSpecialty
 }
