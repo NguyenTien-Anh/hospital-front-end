@@ -19,6 +19,12 @@ class HomeHeader extends Component {
         }
     }
 
+    handleLogin = () => {
+        if (this.props.history) {
+            this.props.history.push(`/login`)
+        }
+    }
+
     render() {
         let language = this.props.language
         return (
@@ -55,8 +61,11 @@ class HomeHeader extends Component {
                                 <i className="fas fa-question-circle"></i>
                                 <FormattedMessage id="homeHeader.support" />
                             </div>
-                            <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => { this.changeLanguage(LANGUAGES.VI) }}>VI</span></div>
-                            <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => { this.changeLanguage(LANGUAGES.EN) }}>EN</span></div>
+                            {/* <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => { this.changeLanguage(LANGUAGES.VI) }}>VI</span></div>
+                            <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => { this.changeLanguage(LANGUAGES.EN) }}>EN</span></div> */}
+                            <div className='login'
+                                onClick={() => this.handleLogin()}
+                            ><span>Đăng nhập</span></div>
                         </div>
                     </div>
                 </div>

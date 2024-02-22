@@ -129,6 +129,9 @@ class BookingModal extends Component {
         let date = new Date(this.state.birthday).getTime()
         let timeString = this.buildTimeBooking(this.props.dataScheduleTimeModal)
         let doctorName = this.buildDoctorName(this.props.dataScheduleTimeModal)
+        // console.log('check doctorId: ', this.state.doctorId)
+        // console.log('check timetype: ', this.state.timeType)
+        console.log('check state: ', this.state)
         let res = await postBookAppointment({
             doctorId: this.state.doctorId,
             fullName: this.state.fullName,
@@ -136,7 +139,8 @@ class BookingModal extends Component {
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
-            date,
+            date: this.props.dataScheduleTimeModal.date,
+            birthday: date,
             selectedGender: this.state.selectedGender.value,
             timeType: this.state.timeType,
             language: this.props.language,
@@ -156,6 +160,7 @@ class BookingModal extends Component {
         let { isOpenBookingModal, closeBookingModal, dataScheduleTimeModal } = this.props
         let doctorId = dataScheduleTimeModal && !_.isEmpty(dataScheduleTimeModal) ? dataScheduleTimeModal.doctorId : ''
         console.log('check dataScheduleTimeModal: ', dataScheduleTimeModal)
+        console.log('check doctorId: ', doctorId)
         return (
             <div>
                 <Modal
@@ -177,6 +182,8 @@ class BookingModal extends Component {
                                     doctorId={doctorId}
                                     isShowDescriptionDoctor={false}
                                     dataScheduleTimeModal={dataScheduleTimeModal}
+                                    isShowLinkDetail={false}
+                                    isShowPrice={true}
                                 />
                             </div>
                             <div className='row'>

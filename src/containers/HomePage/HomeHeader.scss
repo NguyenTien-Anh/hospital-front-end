@@ -99,6 +99,21 @@
                     opacity: 1;
                 }
             }
+
+            .login {
+
+                cursor: pointer;
+                opacity: 0.2;
+
+                span {
+                    color: #49bce2;
+                    font-size: 15px;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
 }

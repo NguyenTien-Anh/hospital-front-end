@@ -50,12 +50,12 @@ class Header extends Component {
                     <span className='welcome'>
                         <FormattedMessage id='homeHeader.welcome' />, {userInfo && userInfo.firstName ? userInfo.firstName : ""}!
                     </span>
-                    <span
+                    {/* <span
                         className={language === LANGUAGES.VI ? 'languages-vi active' : 'languages-vi'}
                         onClick={() => this.handleChangeLanguage(LANGUAGES.VI)}>VI</span>
                     <span
                         className={language === LANGUAGES.EN ? 'languages-en active' : 'languages-en'}
-                        onClick={() => this.handleChangeLanguage(LANGUAGES.EN)}>EN</span>
+                        onClick={() => this.handleChangeLanguage(LANGUAGES.EN)}>EN</span> */}
 
                     {/* nút logout */}
                     <div className="btn btn-logout" onClick={processLogout} title='Log out'>

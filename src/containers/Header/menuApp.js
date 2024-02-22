@@ -1,10 +1,10 @@
 export const adminMenu = [
     { //Quản lý người dùng
         name: 'menu.admin.manage-user', menus: [
-            {
-                name: 'menu.admin.crud',
-                link: '/system/user-manage'
-            },
+            // {
+            //     name: 'menu.admin.crud',
+            //     link: '/system/user-manage'
+            // },
             {
                 name: 'menu.admin.crud-redux',
                 link: '/system/user-redux'
@@ -46,7 +46,7 @@ export const adminMenu = [
             }
         ]
     },
-    { //Quản lý cẩm năng
+    { //Quản lý cẩm nang
         name: 'menu.admin.handbook',
         menus: [
             {
@@ -64,6 +64,10 @@ export const doctorMenu = [
             { //Quản lý lịch trình khám bệnh
                 name: 'menu.doctor.manage-schedule',
                 link: '/doctor/manage-schedule'
+            },
+            { //Quản lý bệnh nhân khám bệnh
+                name: 'menu.doctor.manage-patient',
+                link: '/doctor/manage-patient'
             },
         ]
     }

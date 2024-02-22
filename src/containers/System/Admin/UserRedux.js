@@ -204,7 +204,7 @@ class UserRedux extends Component {
 
 		return (
 			<div className="user-redux-container">
-				<div className="title">Add new user</div>
+				<div className="title">Thêm người dùng</div>
 				<div className="user-redux-body mt-4">
 					<div className="container">
 						<div className="row">

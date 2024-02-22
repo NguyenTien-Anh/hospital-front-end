@@ -7,6 +7,7 @@ import { LANGUAGES } from '../../../utils'
 import NumberFormat from 'react-number-format';
 import _ from 'lodash'
 import moment from 'moment/moment';
+import { Link } from 'react-router-dom'
 
 class ProfileDoctor extends Component {
 
@@ -59,7 +60,9 @@ class ProfileDoctor extends Component {
 
     render() {
         let { profileDoctor } = this.state
-        let { language, isShowDescriptionDoctor, dataScheduleTimeModal } = this.props
+        let { language, isShowDescriptionDoctor, dataScheduleTimeModal, isShowLinkDetail, isShowPrice,
+            doctorId
+        } = this.props
         console.log('check dataScheduleTimeModal: ', dataScheduleTimeModal)
         let nameVi = '', nameEn = ''
         let priceVi = profileDoctor && profileDoctor.Doctor_info && language === LANGUAGES.VI ?
@@ -103,13 +106,21 @@ class ProfileDoctor extends Component {
                     </div>
 
                 </div>
-                <div className='price'>
-                    <FormattedMessage id='patient.booking-modal.price' />: <NumberFormat
-                        value={language === LANGUAGES.VI ? priceVi : priceEn}
-                        displayType={'text'} thousandSeparator={true}
-                        suffix={language === LANGUAGES.VI ? 'VND' : '$'}
-                    />
-                </div>
+                {isShowLinkDetail === true &&
+                    <div className='view-detail-doctor'>
+                        <Link to={`/detail-doctor/${doctorId}`}>Xem thêm</Link>
+                    </div>
+                }
+                {isShowPrice === true &&
+
+                    <div className='price'>
+                        <FormattedMessage id='patient.booking-modal.price' />: <NumberFormat
+                            value={language === LANGUAGES.VI ? priceVi : priceEn}
+                            displayType={'text'} thousandSeparator={true}
+                            suffix={language === LANGUAGES.VI ? 'VND' : '$'}
+                        />
+                    </div>
+                }
             </div>
         );
     }
