@@ -31,6 +31,7 @@ class ManagePatient extends Component {
         let { user } = this.props
         let { currentDate } = this.state
         let formatedDate = new Date(currentDate).getTime()
+        // console.log('check date: ', formatedDate)
 
         let res = await getListPatientForDoctor({
             doctorId: user.id,
@@ -133,7 +134,7 @@ class ManagePatient extends Component {
                                     <tbody>
 
                                         <tr>
-                                            <th>STT</th>
+                                            <th>STT/ (Số khám)</th>
                                             <th>Thời gian</th>
                                             <th >Họ và tên</th>
                                             <th >Địa chỉ</th>

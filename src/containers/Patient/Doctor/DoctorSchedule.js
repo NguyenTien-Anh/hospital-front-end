@@ -6,8 +6,9 @@ import moment from 'moment';
 import localization from 'moment/locale/vi'
 import { LANGUAGES } from '../../../utils'
 import { FormattedMessage } from 'react-intl';
-import { getScheduleDoctorByDate } from '../../../services/userService'
+import { getScheduleDoctorByDate, getNumPatient } from '../../../services/userService'
 import BookingModal from './Modal/BookingModal';
+import { toast } from 'react-toastify'
 
 class DoctorSchedule extends Component {
 
@@ -98,11 +99,22 @@ class DoctorSchedule extends Component {
         }
     }
 
-    handleClickScheduleTime = (time) => {
-        this.setState({
-            isOpenBookingModal: true,
-            dataScheduleTimeModal: time,
+    handleClickScheduleTime = async (time) => {
+        console.log('check time: ', time)
+        let res = await getNumPatient({
+            doctorId: time.doctorId,
+            date: time.date,
+            timeType: time.timeType
         })
+        let numPatient = res.data.length
+        if (numPatient >= 5) {
+            toast.error('Thời gian này đã đầy vui lòng đặt thời gian khác!')
+        } else {
+            this.setState({
+                isOpenBookingModal: true,
+                dataScheduleTimeModal: time,
+            })
+        }
     }
 
     closeBookingModal = () => {

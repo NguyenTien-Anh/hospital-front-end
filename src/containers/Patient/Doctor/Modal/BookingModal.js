@@ -9,7 +9,7 @@ import DatePicker from '../../../../components/Input/DatePicker';
 import Select from 'react-select';
 import * as actions from '../../../../store/actions'
 import { LANGUAGES } from '../../../../utils'
-import { postBookAppointment } from '../../../../services/userService'
+import { postBookAppointment, getNumPatient } from '../../../../services/userService'
 import { toast } from 'react-toastify'
 import moment from 'moment/moment';
 
@@ -124,14 +124,19 @@ class BookingModal extends Component {
     }
 
     handleConfirmBookingModal = async () => {
-        // console.log('check state: ', this.state)
-        // !data.email || !data.doctorId || !data.timeType || !data.date
+
         let date = new Date(this.state.birthday).getTime()
         let timeString = this.buildTimeBooking(this.props.dataScheduleTimeModal)
         let doctorName = this.buildDoctorName(this.props.dataScheduleTimeModal)
-        // console.log('check doctorId: ', this.state.doctorId)
-        // console.log('check timetype: ', this.state.timeType)
-        console.log('check state: ', this.state)
+
+        // console.log('check state: ', this.state)
+        // console.log("check date: ", this.props.dataScheduleTimeModal.date)
+        // console.log("check timeString: ", timeString)
+        // console.log("check doctorName: ", doctorName)
+        // console.log("check doctorId: ", this.state.doctorId)
+        // console.log("check timeType: ", this.state.timeType)
+
+
         let res = await postBookAppointment({
             doctorId: this.state.doctorId,
             fullName: this.state.fullName,
@@ -154,6 +159,7 @@ class BookingModal extends Component {
         } else {
             toast.error('Booking a new appointment error!')
         }
+
     }
 
     render() {
